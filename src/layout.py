@@ -390,7 +390,7 @@ class Layout:
         rows = [
             ("circle", "Tool – klickbar, führt direkt zur Plattform"),
             ("line", "Frage, die das Tool beantwortet"),
-            ("chip", "Funktion des Tools"),
+            ("chip", "Funktionen des Tools"),
             ("badge", "Zugang, den du dafür brauchst"),
         ]
         height = pad + 26 + len(rows) * 34 + pad - 6

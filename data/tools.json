@@ -45,14 +45,14 @@
       "urlLabel": "Lageplan Campus Gummersbach"
     },
     {
-      "id": "hops",
-      "name": "HOPS",
+      "id": "mate",
+      "name": "MATE",
       "color": "orange",
-      "question": "Wo finde ich meinen Stundenplan?",
-      "summary": "Hochschulplanungssystem des Campus Gummersbach mit taggenauer Raum- und Semesterplanung.",
+      "question": "Wo finde ich meinen Stundenplan, Modulinformationen, Prüfungsplan?",
+      "summary": "Module, Assessments, Timetables and Exams. Zentrale Plattform für Modulbeschreibungen, Modulhandbücher und Prüfungslisten aller Studiengänge der Fakultät für Informatik und Ingenieurwissenschaften mit taggenauer Raum- und Semesterplanung.",
       "features": ["Stundenplan", "Prüfungstermine", "Modulverzeichnis", "Raumbelegungsplan"],
-      "zugang": ["gm"],
-      "url": "https://hops.gm.th-koeln.de/hops/modules/timetable/"
+      "zugang": ["campus"],
+      "url": "https://mate.gm.h-koeln.de"
     },
     {
       "id": "gm-id-center",
