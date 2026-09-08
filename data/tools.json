@@ -112,7 +112,7 @@
       "summary": "In einigen Fächern ist das Praktikum Voraussetzung für die Klausurzulassung – das Praktikumstool organisiert Anmeldungen und Nachweise.",
       "features": ["Anmeldung Praktikum", "Dokumentation des Bestehens"],
       "zugang": ["campus"],
-      "url": "https://praktikum.gm.fhkoeln.de"
+      "url": "https://praktikum.gm.fh-koeln.de"
     },
     {
       "id": "eduroam",
