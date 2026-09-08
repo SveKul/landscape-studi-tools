@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} – TH Köln, Campus Gummersbach</title>
+<meta name="description" content="{{SUBTITLE}}">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23C8102E'/></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --ink:#111827; --body:#4B5563; --muted:#6B7280; --line:#E5E7EB;
+  --bg:#F6F7F9; --surface:#FFFFFF; --accent:#C8102E;
+  --font:{{FONT}};
+}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5}
+a{color:inherit}
+.wrap{max-width:2100px;margin:0 auto;padding:0 20px}
+
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+.brand h1{margin:0;font-size:24px;letter-spacing:-.01em}
+.brand p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.brand .rule{width:44px;height:4px;border-radius:2px;background:var(--accent);margin:8px 0 0}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line);
+  border-radius:9px;background:var(--surface);font-size:14px;font-weight:600;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:#C7CBD1;background:#FCFCFD}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.primary:hover{background:#000}
+.btn svg{width:15px;height:15px;flex:none}
+
+main{padding:24px 0 56px}
+.figure{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:auto;padding:8px}
+.figure svg{display:block;width:100%;min-width:1680px;height:auto}
+/* Kopfzeile steckt schon in der Seite – in der eingebetteten Grafik ausblenden.
+   In der SVG-/PDF-Datei bleibt sie sichtbar. */
+.figure .header{display:none}
+.hint{display:none;font-size:13px;color:var(--muted);margin:10px 2px 0}
+
+.list{margin-top:40px}
+.list h2{font-size:19px;margin:0 0 4px}
+.list p.sub{margin:0 0 18px;color:var(--muted);font-size:14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card h3{margin:0 0 2px;font-size:17px}
+.card h3 a{text-decoration:none}
+.card h3 a:hover{text-decoration:underline}
+.card .q{margin:0 0 8px;font-size:13px;color:var(--muted)}
+.card p.s{margin:0 0 12px;font-size:14px;color:var(--body)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.tags li{font-size:12.5px;padding:3px 10px;border-radius:11px;border:1px solid var(--line);color:var(--body)}
+.tags li.zug{font-weight:600}
+.card .url{display:inline-block;margin-top:12px;font-size:13px;color:var(--muted);word-break:break-all}
+
+footer{border-top:1px solid var(--line);background:var(--surface);padding:24px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+footer a{color:inherit;text-decoration:underline}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:900px){
+  .figure{display:none}
+  .hint{display:block}
+  .list{margin-top:8px}
+}
+@media print{
+  header.top,footer,.list,.hint{display:none}
+  body{background:#fff}
+  .figure{border:0;padding:0;overflow:visible}
+  .figure svg{min-width:0}
+  @page{size:A3 landscape;margin:8mm}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <h1>{{TITLE}}</h1>
+      <div class="rule"></div>
+      <p>{{SUBTITLE}}</p>
+    </div>
+    <nav class="actions">
+      <a class="btn primary" href="studi-tools.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg>
+        PDF (A3 quer)
+      </a>
+      <a class="btn" href="studi-tools.svg" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg>
+        SVG (Vektor)
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="figure">
+{{SVG}}
+  </div>
+  <p class="hint">Die Übersichtsgrafik ist für große Bildschirme und den Ausdruck gemacht. Unten stehen alle Tools als Liste – oder lade das PDF herunter.</p>
+
+  <section class="list">
+    <h2>Alle Tools im Überblick</h2>
+    <p class="sub">Stand: {{STAND}}</p>
+    <div class="grid">
+{{LIST}}
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>{{SUBTITLE}} · Stand: {{STAND}}</span>
+    <span><a href="https://www.th-koeln.de/hochschule/impressum_8159.php" target="_blank" rel="noopener">Impressum</a></span>
+  </div>
+</footer>
+</body>
+</html>

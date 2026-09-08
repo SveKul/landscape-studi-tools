@@ -1,0 +1,74 @@
+{
+  "_comment": "Alle visuellen Stellschrauben. Kein Code-Wissen nötig – Werte ändern und `python src/build.py` ausführen.",
+
+  "canvas": {
+    "width": 2540,
+    "height": 2040,
+    "background": "#FFFFFF",
+    "margin": 48
+  },
+
+  "layout": {
+    "hubRadius": 145,
+    "nodeRingA": 650,
+    "nodeRingB": 510,
+    "nodeRadius": 58,
+    "cardRingA": 1040,
+    "cardRingB": 790,
+    "cardWidth": 300,
+    "startAngle": -90,
+    "showGuideRing": true
+  },
+
+  "font": {
+    "family": "Helvetica Neue, Helvetica, Arial, sans-serif",
+    "pdfRegular": "Helvetica",
+    "pdfBold": "Helvetica-Bold"
+  },
+
+  "colors": {
+    "ink": "#111827",
+    "body": "#4B5563",
+    "muted": "#6B7280",
+    "hairline": "#E5E7EB",
+    "surface": "#FFFFFF",
+    "surfaceAlt": "#F3F4F6",
+    "hub": "#111827",
+    "hubText": "#FFFFFF",
+    "accent": "#C8102E"
+  },
+
+  "palette": {
+    "magenta":  { "base": "#A83B86", "dark": "#7E2C64", "tint": "#F7EDF4" },
+    "red":      { "base": "#BE3A32", "dark": "#8F2B25", "tint": "#FBEDEC" },
+    "orange":   { "base": "#C96A14", "dark": "#96500F", "tint": "#FCF1E6" },
+    "indigo":   { "base": "#5A55C4", "dark": "#433F93", "tint": "#EFEEFA" },
+    "green":    { "base": "#2E8B57", "dark": "#226841", "tint": "#EAF5EF" },
+    "cyan":     { "base": "#0E7C99", "dark": "#0A5D73", "tint": "#E7F3F7" },
+    "plum":     { "base": "#93408C", "dark": "#6E3069", "tint": "#F5ECF4" },
+    "crimson":  { "base": "#B83A57", "dark": "#8A2C41", "tint": "#FAECEF" },
+    "amber":    { "base": "#B87514", "dark": "#8A570F", "tint": "#FBF2E4" },
+    "blue":     { "base": "#2F5FC4", "dark": "#234793", "tint": "#EAF0FB" },
+    "forest":   { "base": "#3D7F3A", "dark": "#2E5F2B", "tint": "#EDF5EC" },
+    "teal":     { "base": "#0F8B8D", "dark": "#0B6869", "tint": "#E7F4F4" }
+  },
+
+  "zugangColors": {
+    "campus": { "base": "#C8102E", "tint": "#FBEAEC" },
+    "gm":     { "base": "#1F4E9C", "tint": "#EAF0F9" }
+  },
+
+  "type": {
+    "hub":       { "size": 27, "weight": "bold", "lineHeight": 33 },
+    "node":      { "size": 24, "weight": "bold" },
+    "question":  { "size": 15, "weight": "regular", "lineHeight": 19 },
+    "cardTitle": { "size": 22, "weight": "bold" },
+    "cardBody":  { "size": 14.5, "weight": "regular", "lineHeight": 19.5 },
+    "chip":      { "size": 13, "weight": "regular" },
+    "boxTitle":  { "size": 20, "weight": "bold" },
+    "boxBody":   { "size": 14.5, "weight": "regular", "lineHeight": 19.5 },
+    "header":    { "size": 46, "weight": "bold" },
+    "subheader": { "size": 19, "weight": "regular" },
+    "footnote":  { "size": 14, "weight": "regular" }
+  }
+}

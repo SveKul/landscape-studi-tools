@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "title": "Studi-Tools",
+    "subtitle": "Die wichtigsten Plattformen der TH Köln – Campus Gummersbach",
+    "hub": ["Tools für die", "TH Köln", "Campus Gummersbach"],
+    "stand": "Wintersemester 2026/27"
+  },
+
+  "zugaenge": [
+    {
+      "id": "campus",
+      "label": "Campus ID",
+      "text": "Jede*r Studierende bekommt eine Campus ID. Sie erhalten sie per Mail nach der Immatrikulation."
+    },
+    {
+      "id": "gm",
+      "label": "GM ID",
+      "text": "Studierende am Campus Gummersbach erstellen mit der Campus ID zusätzlich eine GM ID für campusspezifische Angebote."
+    }
+  ],
+
+  "tools": [
+    {
+      "id": "campus-id-center",
+      "name": "Campus ID Center",
+      "color": "magenta",
+      "question": "Wo kann ich meine Campus ID verwalten?",
+      "summary": "Zentrale Verwaltung der Campus ID: Passwort, Weiterleitungen und Sicherheitseinstellungen.",
+      "features": ["Passwort ändern", "E-Mail-Weiterleitung", "Gespeicherte Daten einsehen", "Multi-Faktor-Authentifizierung (MFA)"],
+      "zugang": ["campus"],
+      "url": "https://login.th-koeln.de/nidp/saml2/sso",
+      "links": [
+        { "label": "Infos zur 2-Faktor-Authentisierung", "url": "https://www.th-koeln.de/hochschule/zwei-faktor-authentisierung-2fa_83214.php" }
+      ]
+    },
+    {
+      "id": "rechnerpools",
+      "name": "Rechnerpools",
+      "color": "red",
+      "question": "Wo kann ich am Campus der TH PCs nutzen?",
+      "summary": "Frei nutzbare PC-Pools auf dem Campus, z. B. Raum 2.106 – für Recherche, Übungen und Lernen.",
+      "features": ["Recherche", "Lernen", "Software der Hochschule"],
+      "zugang": ["gm"],
+      "url": "https://www.th-koeln.de/mam/downloads/deutsch/hochschule/organisation/standorte/lageplan_campus_gummersbach.pdf",
+      "urlLabel": "Lageplan Campus Gummersbach"
+    },
+    {
+      "id": "hops",
+      "name": "HOPS",
+      "color": "orange",
+      "question": "Wo finde ich meinen Stundenplan?",
+      "summary": "Hochschulplanungssystem des Campus Gummersbach mit taggenauer Raum- und Semesterplanung.",
+      "features": ["Stundenplan", "Prüfungstermine", "Modulverzeichnis", "Raumbelegungsplan"],
+      "zugang": ["gm"],
+      "url": "https://hops.gm.th-koeln.de/hops/modules/timetable/"
+    },
+    {
+      "id": "gm-id-center",
+      "name": "GM ID Center",
+      "color": "indigo",
+      "question": "Wo erstelle ich meine GM ID?",
+      "summary": "Hier erstellst und verwaltest du die GM ID für campusspezifische Dienste in Gummersbach.",
+      "features": ["GM ID erstellen", "Passwort ändern"],
+      "zugang": ["campus", "gm"],
+      "url": "https://id.gm.fh-koeln.de/"
+    },
+    {
+      "id": "cams",
+      "name": "CAMS",
+      "color": "green",
+      "question": "Wo verwalte ich meine Einschreibung?",
+      "summary": "Selbstbedienungsportal rund um die Immatrikulation: Bescheinigungen, Beiträge und Anträge.",
+      "features": ["Studienbescheinigung", "Studienbeitrag", "Anträge stellen"],
+      "zugang": ["campus"],
+      "url": "https://cams.th-koeln.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces"
+    },
+    {
+      "id": "psso",
+      "name": "PSSO",
+      "color": "cyan",
+      "question": "Wo melde ich mich zur Klausur an?",
+      "summary": "Prüfungs- und Studierendenservice Online – Selbstbedienung rund um Prüfungsangelegenheiten.",
+      "features": ["Prüfungsanmeldung", "Notenspiegel", "Prüfungsergebnisse"],
+      "zugang": ["campus"],
+      "url": "https://psso.th-koeln.de/qisserver/rds?state=user&type=0"
+    },
+    {
+      "id": "webmail",
+      "name": "Webmail",
+      "color": "plum",
+      "question": "Wie erhalte ich E-Mails und wo kann ich selbst welche schreiben?",
+      "summary": "Zugang zur persönlichen Hochschul-E-Mail-Adresse.",
+      "features": ["Hochschulinformationen", "Austausch mit Lehrenden"],
+      "zugang": ["campus"],
+      "url": "https://webmail.th-koeln.de/login.php"
+    },
+    {
+      "id": "sciebo",
+      "name": "sciebo",
+      "color": "crimson",
+      "question": "Wie transferiere ich große Dateien?",
+      "summary": "Nicht-kommerzieller Cloud-Speicher für Forschung, Studium und Lehre: Sync über Geräte hinweg und gemeinsames Arbeiten an Dokumenten.",
+      "features": ["Daten speichern", "Praktikumsabgaben", "Sync & Share"],
+      "zugang": ["campus"],
+      "url": "https://th-koeln.sciebo.de/"
+    },
+    {
+      "id": "praktikumsverwaltung",
+      "name": "Praktikumstool",
+      "color": "amber",
+      "question": "Wie wird das Praktikum verwaltet?",
+      "summary": "In einigen Fächern ist das Praktikum Voraussetzung für die Klausurzulassung – das Praktikumstool organisiert Anmeldungen und Nachweise.",
+      "features": ["Anmeldung Praktikum", "Dokumentation des Bestehens"],
+      "zugang": ["campus"],
+      "url": "https://praktikum.gm.fhkoeln.de"
+    },
+    {
+      "id": "eduroam",
+      "name": "eduroam",
+      "color": "blue",
+      "question": "Wie komme ich ins WLAN?",
+      "summary": "Education Roaming: WLAN am Campus und an tausenden Hochschulen weltweit mit denselben Zugangsdaten.",
+      "features": ["WLAN am Campus", "WLAN an anderen Hochschulen"],
+      "zugang": ["campus"],
+      "url": "https://www.th-koeln.de/hochschule/eduroam_25369.php"
+    },
+    {
+      "id": "vpn",
+      "name": "VPN",
+      "color": "forest",
+      "question": "Wie komme ich von zuhause ins TH-Netz?",
+      "summary": "Über eine VPN-Verbindung nutzt Sie von außerhalb alle Dienste, die nur im Hochschulnetz verfügbar sind.",
+      "features": ["Tunnel ins TH-Netzwerk", "Zugriff von außerhalb", "Lizenzen & E-Ressourcen"],
+      "zugang": ["campus"],
+      "url": "https://www.th-koeln.de/hochschule/vpn---virtual-private-network_26952.php"
+    },
+    {
+      "id": "ilu",
+      "name": "ILU",
+      "color": "teal",
+      "question": "Wo finde ich die Inhalte zum Studium?",
+      "summary": "Lernplattform der TH Köln – Materialien, Kurse und Zusammenarbeit.",
+      "features": ["Modulinhalte", "Gruppenarbeit", "Abgaben & Tests"],
+      "zugang": ["campus"],
+      "url": "https://ilu.th-koeln.de/"
+    }
+  ]
+}
