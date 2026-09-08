@@ -1,26 +1,11 @@
 # Studi-Tools – TH Köln, Campus Gummersbach
 
 Interaktive Online-Version der Plattform-Übersicht für Studierende: ein
-graphbasiertes Schaubild mit zentralem Knoten, zwölf Tools und den Fragen,
-die sie beantworten. Löst das bisherige PDF ab, ohne dessen Vorteile zu
-verlieren – die Seite ist gleichzeitig die Druckvorlage.
+graphbasiertes Schaubild mit zentralem Knoten, der relevantesten Tools und den Fragen,
+die sie beantworten.
 
-* **Seite:** `https://<user>.github.io/<repo>/`
 * **Downloads:** SVG (Vektor) und PDF (A3 quer, mit klickbaren Links)
 
-## Warum so gebaut
-
-| Ziel | Umsetzung |
-| --- | --- |
-| Schnelle Ladezeit | Eine einzige HTML-Datei (~45 KB), SVG inline, **kein JavaScript, kein CDN, keine Webfonts** – ein einziger Request, keine Layout-Sprünge |
-| Leichte Änderbarkeit | Inhalte stehen ausschließlich in `data/tools.json`, Farben und Maße in `data/theme.json` – kein Code-Wissen nötig |
-| Erweiterbarkeit | Das radiale Layout wird berechnet: neues Tool eintragen, neu bauen, der Ring ordnet sich selbst |
-| Hochauflösender Download | Vektor statt Pixel: SVG beliebig skalierbar, PDF druckfertig in A3 quer |
-| Barrierearm / mobil | Unter der Grafik steht dieselbe Information als Textliste mit echten Links |
-
-Kein Unity, kein React: eine WebGL-Anwendung oder ein Framework würde für
-diese Inhalte mehrere Megabyte laden – hier reicht statisches SVG, das der
-Browser sofort rendert.
 
 ## Schnellstart
 
@@ -58,8 +43,6 @@ Der Build prüft die Daten vorab und meldet z. B. doppelte `id`s, unbekannte
 Farben oder fehlende Felder im Klartext. Passt eine Karte nicht mehr auf die
 Fläche, warnt er und nennt die Stellschraube.
 
-Weiche Trennzeichen (`­` im JSON) geben lange Wörter zum Umbrechen frei,
-z. B. `Praktikums­verwaltung`.
 
 ### Aussehen ändern
 
@@ -104,8 +87,3 @@ Alternative ohne Actions: **Settings → Pages → Deploy from a branch →
 `main` / `/docs`**. Dann muss der Ordner `docs/` mitcommittet werden (er ist
 es bereits) und nach jeder Änderung lokal neu gebaut werden.
 
-## Lizenz / Inhalte
-
-Code: MIT (siehe `LICENSE`). Die Inhalte beschreiben Dienste der TH Köln;
-Namen und Marken gehören der Hochschule. Vor Semesterbeginn lohnt ein Blick
-auf die verlinkten Seiten – Links und Zuständigkeiten ändern sich.
