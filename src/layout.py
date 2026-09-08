@@ -337,9 +337,9 @@ class Layout:
         group.add(Text(self.width - m, m + 44, "TH Köln · Campus Gummersbach",
                        size=self.type["subheader"]["size"], bold=True,
                        fill=self.colors["ink"], anchor="end"))
-        group.add(Text(self.width - m, m + 72, "Stand: " + meta["stand"],
-                       size=self.type["footnote"]["size"], fill=self.colors["muted"],
-                       anchor="end"))
+#        group.add(Text(self.width - m, m + 72, "Stand: " + meta["stand"],
+#                       size=self.type["footnote"]["size"], fill=self.colors["muted"],
+#                      anchor="end"))
         return group
 
     def _zugang_box(self):

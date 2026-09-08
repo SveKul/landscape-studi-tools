@@ -139,7 +139,7 @@ def main():
     html = (template
             .replace("{{TITLE}}", clean(meta["title"]))
             .replace("{{SUBTITLE}}", clean(meta["subtitle"]))
-            .replace("{{STAND}}", clean(meta["stand"]))
+#            .replace("{{STAND}}", clean(meta["stand"]))
             .replace("{{KONTAKT}}", clean(meta.get("kontakt", "")))
             .replace("{{FONT}}", font)
             .replace("{{LIST}}", build_list(data, theme))
