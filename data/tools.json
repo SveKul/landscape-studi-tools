@@ -40,7 +40,7 @@
       "question": "Wo kann ich am Campus der TH PCs nutzen?",
       "summary": "Frei nutzbare PC-Pools auf dem Campus, z. B. Raum 2.106 – für Recherche, Übungen und Lernen.",
       "features": ["Recherche", "Lernen", "Software der Hochschule"],
-      "zugang": ["gm"],
+      "zugang": ["campus"],
       "url": "https://www.th-koeln.de/mam/downloads/deutsch/hochschule/organisation/standorte/lageplan_campus_gummersbach.pdf",
       "urlLabel": "Lageplan Campus Gummersbach"
     },
@@ -111,7 +111,7 @@
       "question": "Wie wird das Praktikum verwaltet?",
       "summary": "In einigen Fächern ist das Praktikum Voraussetzung für die Klausurzulassung – das Praktikumstool organisiert Anmeldungen und Nachweise.",
       "features": ["Anmeldung Praktikum", "Dokumentation des Bestehens"],
-      "zugang": ["campus"],
+      "zugang": ["gm"],
       "url": "https://praktikum.gm.fh-koeln.de"
     },
     {
