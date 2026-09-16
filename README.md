@@ -35,6 +35,22 @@ Alles Inhaltliche steckt in `data/tools.json`:
 }
 ```
 
+Optionale Felder:
+
+```jsonc
+{
+  "highlight": true,          // Knoten hervorheben: Ring, "!"-Marke, kräftige Karte
+  "note": "Kurzer Warnsatz",  // fetter Hinweisstreifen in der Karte
+  "links": [                  // Zusatzlinks, erscheinen nur in der HTML-Liste
+    { "label": "Prüfungsfristen Informatik (PDF)", "url": "https://…" }
+  ]
+}
+```
+
+`highlight` ist für Dinge gedacht, bei denen eine verpasste Frist echte Folgen
+hat – sparsam einsetzen, sonst hebt sich nichts mehr ab. Die Legende erklärt die
+Markierung automatisch.
+
 Danach `python src/build.py` – fertig. Die Reihenfolge im Array bestimmt die
 Position im Ring (im Uhrzeigersinn ab 12 Uhr). Ein Tool zu löschen oder
 einzufügen verschiebt automatisch alle anderen.

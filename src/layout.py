@@ -133,8 +133,9 @@ class Layout:
 
     def _tool(self, tool, place, edges, cards, nodes, labels):
         pal = self._palette(tool)
+        strong = bool(tool.get("highlight"))
         nx, ny = place["node"]
-        node_r = self.geo["nodeRadius"]
+        node_r = self.geo["nodeRadius"] + (10 if strong else 0)
 
         # Speiche Hub -> Knoten
         dx, dy = nx - self.cx, ny - self.cy
@@ -143,8 +144,10 @@ class Layout:
         hub_r = self.geo["hubRadius"]
         x1, y1 = self.cx + ux * (hub_r + 6), self.cy + uy * (hub_r + 6)
         x2, y2 = nx - ux * node_r, ny - uy * node_r
-        edges.add(Line(x1, y1, x2, y2, mix(pal["base"], WHITE, 0.45), 3.0))
-        edges.add(Circle(x1, y1, 4.5, fill=mix(pal["base"], WHITE, 0.25)))
+        edges.add(Line(x1, y1, x2, y2, mix(pal["base"], WHITE, 0.15 if strong else 0.45),
+                       5.0 if strong else 3.0))
+        edges.add(Circle(x1, y1, 6.5 if strong else 4.5,
+                         fill=mix(pal["base"], WHITE, 0.0 if strong else 0.25)))
 
         # Frage entlang der Speiche
         self._question(tool, (x1, y1), (x2, y2), labels)
@@ -156,7 +159,8 @@ class Layout:
         # Verbinder Knoten -> Karte
         ex, ey = ray_rect_exit(nx, ny, ux, uy, rect)
         edges.add(Line(nx + ux * node_r, ny + uy * node_r, ex, ey,
-                       mix(pal["base"], WHITE, 0.55), 1.6))
+                       mix(pal["base"], WHITE, 0.2 if strong else 0.55),
+                       3.0 if strong else 1.6))
 
         href = tool.get("url")
         group = Group(cls="tool", href=href, title=tool["name"])
@@ -166,26 +170,39 @@ class Layout:
         # Knoten
         node_group = Group(cls="node", href=href, title=tool["name"])
         node_group.add(Circle(nx, ny, node_r, fill=pal["base"]))
+        if strong:
+            # Ring mit Luft dazwischen: hebt den Knoten ab, ohne ihn zu vergrößern
+            node_group.add(Circle(nx, ny, node_r + 9, stroke=pal["base"], stroke_width=3.5))
         lines, size, line_height = fit_lines_in_circle(
             tool["name"], node_r - 6, self.type["node"]["size"], 12)
         start = ny - (len(lines) - 1) * line_height / 2 + size * 0.34
         for i, line in enumerate(lines):
             node_group.add(Text(nx, start + i * line_height, line.replace("­", ""),
                                 size=size, bold=True, fill=WHITE, anchor="middle"))
+        if strong:
+            self._alert_badge(node_group, nx + node_r * 0.72, ny - node_r * 0.72, pal)
         nodes.add(node_group)
+
+    def _alert_badge(self, group, cx, cy, pal):
+        """Kleines Ausrufezeichen am Knoten – der Blickfang im Ring."""
+        group.add(Circle(cx, cy, 20, fill=WHITE))
+        group.add(Circle(cx, cy, 16, fill=pal["dark"]))
+        group.add(Text(cx, cy + 8, "!", size=24, bold=True, fill=WHITE, anchor="middle"))
 
     def _question(self, tool, start, end, labels):
         style = self.type["question"]
+        strong = bool(tool.get("highlight"))
+        color = self._palette(tool)["dark"] if strong else self.colors["body"]
         (x1, y1), (x2, y2) = start, end
         angle = math.degrees(math.atan2(y2 - y1, x2 - x1))
         flip = 90 < abs(angle) <= 180
         draw_angle = angle + 180 if flip else angle
 
         available = math.hypot(x2 - x1, y2 - y1) - 34
-        lines = metrics.wrap(tool["question"], style["size"], available)
+        lines = metrics.wrap(tool["question"], style["size"], available, strong)
         # Nicht mehr als zwei Zeilen: notfalls enger umbrechen
         if len(lines) > 2:
-            lines = metrics.wrap(tool["question"], style["size"], available * 1.0)[:2]
+            lines = metrics.wrap(tool["question"], style["size"], available * 1.0, strong)[:2]
 
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
         # senkrecht zur Speiche versetzen, damit die Zeilen sauber stapeln
@@ -195,7 +212,7 @@ class Layout:
         for i, line in enumerate(lines):
             shift = offset + i * style["lineHeight"]
             labels.add(Text(mx + px * shift, my + py * shift + style["size"] * 0.34, line,
-                            size=style["size"], fill=self.colors["body"],
+                            size=style["size"], bold=strong, fill=color,
                             anchor="middle", rotate=draw_angle,
                             halo=self.canvas["background"], halo_width=5))
 
@@ -203,9 +220,11 @@ class Layout:
 
     def _card(self, tool, center):
         pal = self._palette(tool)
+        strong = bool(tool.get("highlight"))
         width = self.geo["cardWidth"]
         pad = 18
         inner = width - 2 * pad
+        note_inner = inner - 22       # Platz für Balken und Innenabstand der Notiz
 
         title = self.type["cardTitle"]
         body = self.type["cardBody"]
@@ -213,6 +232,8 @@ class Layout:
 
         title_lines = metrics.wrap(tool["name"], title["size"], inner, True)
         body_lines = metrics.wrap(tool["summary"], body["size"], inner)
+        note_lines = (metrics.wrap(tool["note"], body["size"], note_inner, True)
+                      if tool.get("note") else [])
         chip_rows = self._flow(tool.get("features", []), chip["size"], inner)
         zug_rows = self._flow([self._zugang_label(z) for z in tool.get("zugang", [])],
                               chip["size"], inner)
@@ -221,6 +242,8 @@ class Layout:
         height += len(title_lines) * (title["size"] * 1.2)
         height += 10
         height += len(body_lines) * body["lineHeight"]
+        if note_lines:
+            height += 12 + 20 + len(note_lines) * body["lineHeight"]
         if chip_rows:
             height += 12 + len(chip_rows) * 28
         if zug_rows:
@@ -232,7 +255,8 @@ class Layout:
         y = center[1] - height / 2
         shapes = [
             Rect(x, y, width, height, r=16,
-                 fill=pal["tint"], stroke=mix(pal["base"], WHITE, 0.6), stroke_width=1.4),
+                 fill=pal["tint"], stroke=pal["base"] if strong else mix(pal["base"], WHITE, 0.6),
+                 stroke_width=3.0 if strong else 1.4),
         ]
 
         cursor = y + pad
@@ -248,6 +272,20 @@ class Layout:
             shapes.append(Text(x + pad, cursor, line, size=body["size"],
                                fill=self.colors["body"]))
             cursor += body["lineHeight"] - body["size"] * 0.9
+
+        if note_lines:
+            cursor += 12
+            note_h = 20 + len(note_lines) * body["lineHeight"]
+            shapes.append(Rect(x + pad, cursor, inner, note_h, r=8,
+                               fill=WHITE, stroke=mix(pal["base"], WHITE, 0.45)))
+            shapes.append(Rect(x + pad, cursor, 5, note_h, r=2.5, fill=pal["base"]))
+            note_y = cursor + 10
+            for line in note_lines:
+                note_y += body["size"] * 0.9
+                shapes.append(Text(x + pad + 17, note_y, line, size=body["size"],
+                                   bold=True, fill=pal["dark"]))
+                note_y += body["lineHeight"] - body["size"] * 0.9
+            cursor += note_h
 
         if chip_rows:
             cursor += 12
@@ -391,7 +429,8 @@ class Layout:
             ("circle", "Tool – klickbar, führt direkt zur Plattform"),
             ("line", "Frage, die das Tool beantwortet"),
             ("chip", "Funktionen des Tools"),
-            ("badge", "Zugang, den du dafür brauchst"),
+            ("badge", "Zugang, den Sie dafür brauchen"),
+            ("alert", "Fristgebunden – hier hängt die Prüfungszulassung dran"),
         ]
         height = pad + 26 + len(rows) * 34 + pad - 6
         x = self.width - m - width
@@ -415,6 +454,12 @@ class Layout:
             elif kind == "chip":
                 group.add(Rect(icon_x - 16, cursor - 16, 32, 22, r=11, fill=WHITE,
                                stroke=mix(sample["base"], WHITE, 0.55)))
+            elif kind == "alert":
+                alert = self.theme["palette"]["signal"]
+                group.add(Circle(icon_x, cursor - 5, 10.5, fill=alert["base"]))
+                group.add(Circle(icon_x, cursor - 5, 14.5, stroke=alert["base"], stroke_width=2))
+                group.add(Text(icon_x, cursor + 1, "!", size=16, bold=True,
+                               fill=WHITE, anchor="middle"))
             else:
                 group.add(Rect(icon_x - 16, cursor - 16, 32, 22, r=11,
                                fill=mix(sample["base"], WHITE, 0.82),

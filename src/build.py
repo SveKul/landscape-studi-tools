@@ -88,15 +88,24 @@ def build_list(data, theme):
                         % (zug_style.get(z, ""), clean(labels.get(z, z)))
                         for z in tool.get("zugang", []))
         foot = hostname(url) if url else tool.get("urlLabel", "")
+        note = ('<p class="note">%s</p>' % clean(tool["note"])) if tool.get("note") else ""
+        extra = "".join('<li><a href="%s" target="_blank" rel="noopener">%s</a></li>'
+                        % (esc(link["url"]), clean(link["label"]))
+                        for link in tool.get("links", []))
+        if extra:
+            extra = '<ul class="more">%s</ul>' % extra
         out.append(
-            '      <article class="card">\n'
+            '      <article class="card%s">\n'
             '        <h3>%s</h3>\n'
             '        <p class="q">%s</p>\n'
             '        <p class="s">%s</p>\n'
+            '        %s\n'
             '        <ul class="tags">%s</ul>\n'
             '        %s\n'
+            '        %s\n'
             '      </article>' % (
-                heading, clean(tool["question"]), clean(tool["summary"]), tags,
+                " important" if tool.get("highlight") else "",
+                heading, clean(tool["question"]), clean(tool["summary"]), note, tags, extra,
                 ('<a class="url" href="%s" target="_blank" rel="noopener">%s</a>'
                  % (esc(url), clean(foot)) if url else '<span class="url">%s</span>' % clean(foot))))
     return "\n".join(out)

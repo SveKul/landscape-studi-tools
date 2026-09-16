@@ -54,6 +54,16 @@ main{padding:24px 0 56px}
 .tags li{font-size:12.5px;padding:3px 10px;border-radius:11px;border:1px solid var(--line);color:var(--body)}
 .tags li.zug{font-weight:600}
 .card .url{display:inline-block;margin-top:12px;font-size:13px;color:var(--muted);word-break:break-all}
+.more{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+.more a{font-size:13px;color:var(--accent);font-weight:600}
+
+/* Fristgebundene Karte – bewusst lauter als der Rest */
+.card.important{border:2px solid var(--accent);grid-column:1/-1;background:#FFF8F9}
+.card.important h3::before{content:"!";display:inline-flex;align-items:center;justify-content:center;
+  width:20px;height:20px;margin-right:8px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:14px;line-height:1;vertical-align:-3px}
+.card.important .note{margin:0 0 12px;padding:10px 12px;border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;background:#FDEBEE;font-size:14px;font-weight:600;color:#8E0B20}
 
 footer{border-top:1px solid var(--line);background:var(--surface);padding:24px 0;font-size:13px;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}

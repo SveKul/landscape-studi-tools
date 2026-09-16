@@ -21,6 +21,23 @@
 
   "tools": [
     {
+      "id": "fristen",
+      "name": "Fristen & Termine",
+      "color": "signal",
+      "highlight": true,
+      "question": "Bis wann muss ich mich zur Prüfung anmelden?",
+      "summary": "Semesterpläne, Vorlesungs- und Prüfungszeiten der Fakultät. Die Anmeldefristen stehen erst im PDF unter »Prüfungsfristen« – dort zählt die Zeile »Prüfungsanmeldungen«.",
+      "note": "Ohne Anmeldung in dieser Frist ist die Teilnahme an Prüfungen nicht möglich.",
+      "features": ["Semesterplan", "Prüfungsanmeldung", "Prüfungszeiträume", "Vorlesungszeiten"],
+      "zugang": [],
+      "url": "https://www.th-koeln.de/informatik-und-ingenieurwissenschaften/informatik-und-ingenieurwissenschaften/termine-und-fristen_19440.php",
+      "links": [
+        { "label": "Prüfungsfristen Informatik (PDF)", "url": "https://www.th-koeln.de/mam/downloads/deutsch/hochschule/fakultaeten/informatik_und_ingenieurwissenschaften/neuer_terminplan_informatik_2026_mit_info_zu_anmeldungen.pdf" },
+        { "label": "Prüfungsfristen Ingenieurwissenschaften (PDF)", "url": "https://www.th-koeln.de/mam/downloads/deutsch/hochschule/fakultaeten/informatik_und_ingenieurwissenschaften/neuer_terminplan_ige_2026_mit_info_zu_anmeldungen_nur_psso.pdf" },
+        { "label": "An- und Abmeldung zu Prüfungen", "url": "https://www.th-koeln.de/studium/an--und-abmeldung-zu-pruefungen_130083.php" }
+      ]
+    },
+    {
       "id": "campus-id-center",
       "name": "Campus ID Center",
       "color": "magenta",
@@ -59,7 +76,7 @@
       "name": "GM ID Center",
       "color": "indigo",
       "question": "Wo erstelle ich meine GM ID?",
-      "summary": "Hier erstellst und verwaltest du die GM ID für campusspezifische Dienste in Gummersbach.",
+      "summary": "Hier erstellst und verwalten Sie die GM ID für campusspezifische Dienste in Gummersbach.",
       "features": ["GM ID erstellen", "Passwort ändern"],
       "zugang": ["campus", "gm"],
       "url": "https://id.gm.fh-koeln.de/"

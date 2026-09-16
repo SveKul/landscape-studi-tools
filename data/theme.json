@@ -39,6 +39,7 @@
   },
 
   "palette": {
+    "signal":   { "base": "#C8102E", "dark": "#8E0B20", "tint": "#FDEBEE" },
     "magenta":  { "base": "#A83B86", "dark": "#7E2C64", "tint": "#F7EDF4" },
     "red":      { "base": "#BE3A32", "dark": "#8F2B25", "tint": "#FBEDEC" },
     "orange":   { "base": "#C96A14", "dark": "#96500F", "tint": "#FCF1E6" },
