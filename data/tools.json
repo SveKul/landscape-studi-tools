@@ -69,7 +69,7 @@
       "summary": "Module, Assessments, Timetables and Exams. Zentrale Plattform für Modulbeschreibungen, Modulhandbücher und Prüfungslisten aller Studiengänge der Fakultät für Informatik und Ingenieurwissenschaften mit taggenauer Raum- und Semesterplanung.",
       "features": ["Stundenplan", "Prüfungstermine", "Modulverzeichnis", "Raumbelegungsplan"],
       "zugang": ["campus"],
-      "url": "https://mate.gm.h-koeln.de"
+      "url": "https://mate.gm.th-koeln.de"
     },
     {
       "id": "gm-id-center",
